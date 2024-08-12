@@ -7,18 +7,18 @@ import { ConfigPlugin, withGradleProperties } from "expo/config-plugins";
 export const withDesugaring: ConfigPlugin<boolean> = (config, isDisabled) => {
   const desugaringKey = "android.enableDexingArtifactTransform.desugaring";
   return withGradleProperties(config, (config) => {
-    config.modResults = config.modResults.filter((item) => {
-      if (item.type === "property" && item.key === desugaringKey) {
-        return false;
-      }
-      return true;
-    });
+    // config.modResults = config.modResults.filter((item) => {
+    //   if (item.type === "property" && item.key === desugaringKey) {
+    //     return false;
+    //   }
+    //   return true;
+    // });
 
-    config.modResults.push({
-      type: "property",
-      key: desugaringKey,
-      value: String(!isDisabled),
-    });
+    // config.modResults.push({
+    //   type: "property",
+    //   key: desugaringKey,
+    //   value: String(!isDisabled),
+    // });
 
     return config;
   });
